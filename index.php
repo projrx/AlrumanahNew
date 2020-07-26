@@ -133,7 +133,7 @@
 
 
 
-<?php $rows =mysqli_query($con,"SELECT * FROM productcat ORDER BY ordr" ) or die(mysqli_error($con));
+<?php $rows =mysqli_query($con,"SELECT * FROM productcat limit 2,5" ) or die(mysqli_error($con));
                 $n=0;
                 while($row=mysqli_fetch_array($rows)){
                     $name = $row['name'];
@@ -147,35 +147,12 @@
 
             <div class="card">
 
-              <div class="cardheader">
+         
 
-                <span class="category-lead-bg"></span>
-
-                <div class="badge badgebg"> <i class="fa fa-<?php echo $img ?> faiconbg"></i></div>
-
-                <div class="tdiv">
-                  <center>
-                    <span class="title"><?php echo $name ?> </span>                  
-                  </center>
-                </div>
-              </div>
               <div class="cardbody">
-                <ul>
+   <img src="images/products/<?php echo $img ?>" style="width: 100%; ">
 
-<?php $rowsx =mysqli_query($con,"SELECT * FROM productsubcat where pid='$id' ORDER BY ordr" ) or die(mysqli_error($con));
-                while($rowx=mysqli_fetch_array($rowsx)){
-                    $sid = $rowx['id'];
-                    $name = $rowx['name'];
-                    $subslug = $rowx['slug'];
-
-                    
-        $rowsq =mysqli_query($con,"SELECT * FROM product where pid='$sid'" ) or die(mysqli_error($con));        $rowcount=mysqli_num_rows($rowsq);
-
-
-                    ?>
-                  <li class="bli"><a href="sproducts-<?php echo $subslug ?>"><?php echo $name ?> <i class="badge badgeli"><?php echo $rowcount ?></i> </a> </li>
-
-                <?php } ?>
+                    <span class="title"><?php echo $name ?> </span>                  
 
                 </ul>
 
@@ -241,12 +218,12 @@
         
       </div>
     </section>
-    
+  
 
         <br><br>
         <br><br>
 
-        <center><h2>Latest News & Suggestions</h2></center>
+        <center><h3>Latest News & Blogs:</h3></center>
 
 
         <br><br>
@@ -274,9 +251,9 @@
                   ?>
           <div class="col-md-3">
             <div class="card">
-              <a href="pages-<?php echo $slug ?>">
+              <a href="blogs-<?php echo $slug ?>">
               <div class="">
-                <img src="images/covers/<?php echo $cover ?>" class="cardimg">
+                <img src="images/covers/<?php echo $cover ?>" class="cardimg" style="width: 100%">
               </div>
               <div class="cardbody">
 
